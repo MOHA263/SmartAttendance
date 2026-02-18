@@ -1,0 +1,173 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* BACKGROUND */
+.auth-body {
+    background: url('../images/register.png') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* SCENE */
+.scene {
+    width: 360px;
+    perspective: 1200px;
+}
+
+/* CARD */
+.auth-card {
+    width: 100%;
+    transform-style: preserve-3d;
+    animation: flipInRight 0.7s ease;
+}
+
+/* BACK FACE */
+.auth-back {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    padding: 30px;
+    border-radius: 12px;
+    color: #fff;
+    text-align: center;
+
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+/* TITLE */
+h2 {
+    margin-bottom: 20px;
+}
+
+/* INPUTS */
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 14px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+}
+
+/* PASSWORD */
+.password-box {
+    position: relative;
+}
+
+.password-box span {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    cursor: pointer;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 11px;
+    margin-top: 10px;
+
+    background: linear-gradient(135deg, #7b2ff7, #9f5cff);
+    border: none;
+    border-radius: 8px;
+
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #6a1ee6, #8e4bee);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(123, 47, 247, 0.4);
+}
+
+button:active {
+    background: linear-gradient(135deg, #5917d5, #7d3edd);
+    transform: translateY(0);
+}
+
+button.active {
+    background: linear-gradient(135deg, #4810c4, #6c2dcc);
+}
+
+/* MESSAGE */
+#msg {
+    margin-top: 10px;
+}
+
+/* BACK LINK */
+.back-link {
+    display: block;
+    margin-top: 15px;
+    font-size: 13px;
+    color: #ccc;
+    text-decoration: none;
+}
+
+/* FLIP IN ANIMATION */
+@keyframes flipInRight {
+    from {
+        transform: rotateY(90deg);
+        opacity: 0;
+    }
+    to {
+        transform: rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+/* =========================
+   MOBILE RESPONSIVE STYLES
+   ========================= */
+@media (max-width: 480px) {
+
+    .scene {
+        width: 100%;
+    }
+
+    .auth-body {
+        padding: 15px;
+        background-attachment: scroll;
+    }
+
+    .auth-back {
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    input {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .password-box span {
+        top: 10px;
+        font-size: 18px;
+    }
+
+    button {
+        padding: 13px;
+        font-size: 15px;
+    }
+
+    .back-link {
+        font-size: 14px;
+    }
+}

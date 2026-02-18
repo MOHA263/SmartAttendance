@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Teacher Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/teacher-dashboard.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="icon" type="image/png" href="/images/title_icon.png" />
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h2>Student List</h2>
+
+    <div class="header-buttons">
+
+      <button class="view-btn" onclick="openWeeklyAttendancePopup()">
+        <i class="fa fa-calendar-week"></i> View Attendance
+      </button>
+
+      <button class="add-btn" onclick="openAddStudentModal()">
+        <i class="fa fa-user-plus"></i> Add Student
+      </button>
+
+      <button class="logout-btn" onclick="logout()">
+        <i class="fa fa-right-from-bracket"></i> Logout
+      </button>
+
+      <button class="logout-btn" onclick="deleteAccount()">
+        <i class="fa fa-user-xmark"></i> Delete Account
+      </button>
+
+    </div>
+  </div>
+
+  <!-- STUDENT TABLE -->
+  <table class="student-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Roll No</th>
+        <th>Email</th>
+        <th>Today</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody id="studentTableBody">
+      <!-- Today column default = "-" -->
+    </tbody>
+  </table>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <button class="otp-btn" onclick="sendOtp()">🔑 Send OTP</button>
+  </div>
+
+</div>
+
+<!-- ADD STUDENT MODAL -->
+<div id="studentModal" class="modal">
+  <div class="modal-content">
+    <h3>Add Student</h3>
+
+    <input type="text" id="Name" placeholder="Student Name" />
+    <input type="text" id="rollNumber" placeholder="Roll Number" />
+    <input type="email" id="email" placeholder="Email" />
+
+    <div class="modal-actions">
+      <button onclick="saveStudent()">Save</button>
+      <button class="cancel" onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- EDIT STUDENT + ATTENDANCE -->
+<div id="editModal" class="modal">
+  <div class="modal-content">
+    <h3>Edit Student</h3>
+
+    <input type="text" id="editName" placeholder="Name" />
+    <input type="email" id="editEmail" placeholder="Email" />
+
+    <select id="editAttendance" style="display: none;">
+      <option value="P">Present</option>
+      <option value="A">Absent</option>
+    </select>
+
+    <div class="modal-actions">
+      <button onclick="updateStudent()">Update</button>
+      <button class="cancel" onclick="closeEditModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- WEEKLY ATTENDANCE POPUP -->
+<div id="attendancePopup" class="modal">
+  <div class="modal-content">
+
+    <h3>Weekly Attendance Report</h3>
+
+    <table class="attendance-table">
+      <thead>
+        <tr>
+          <th>Roll No</th>
+          <th>Name</th>
+          <th>Attendance</th>
+          <th>M</th>
+          <th>T</th>
+          <th>W</th>
+          <th>T</th>
+          <th>F</th>
+          <th>S</th>
+        </tr>
+      </thead>
+
+      <tbody id="attendanceTableBody">
+        <!-- P / A values -->
+      </tbody>
+    </table>
+
+    <button class="cancel" onclick="closeAttendancePopup()">Close</button>
+
+  </div>
+</div>
+
+<script src="/js/teacher-dashboard.js"></script>
+</body>
+</html>

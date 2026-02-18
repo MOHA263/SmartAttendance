@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teacher Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/teacher-login.css">
+    <link rel="icon" type="image/png" href="/images/title_icon.png" size="32x32">
+</head>
+<body class="auth-body">
+<div class="scene">
+    <div class="auth-card" id="authCard">
+        <!-- LOGIN(Front) -->
+        <div class="auth-face auth-front">
+            <div class="container">
+                <h2>Teacher Login</h2>
+
+                <input type="text" id="teacherId" placeholder="Teacher ID(6 digits)"/>
+                <div class="password-box">
+                    <input type="password" id="password" placeholder="Password">
+                    <span onclick="togglePassword()">👁️</span>
+                </div> 
+
+                <button onclick="loginTeacher()" class="login-btn">Login</button>
+
+                <div class="auth-links">
+                    <a href="#" onclick="goForgot()" class="flip-left">Forgot Password?</a>
+                    <a href="#" onclick="goRegister()" class="flip-right">Register</a>
+                </div>
+
+                <a href="/role" class="back-link">Back to Role</a>
+
+                <div id="message"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/js/teacher-login.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attendance</title>
+    <link rel="icon" type="image/png" href="/images/title_icon.png">
+    <link rel="stylesheet" href="/css/student.css">
+</head>
+<body>
+
+<!-- OTP WAITING MODAL -->
+<div id="waitingModal" class="waiting-modal">
+    <div class="waiting-content">
+        <h3>⏳ Waiting for OTP</h3>
+        <p>Teacher hasn't sent OTP yet</p>
+        <div class="spinner"></div>
+        <p style="font-size: 12px; color: #999; margin-top: 15px;">Checking for OTP...</p>
+    </div>
+</div>
+
+<div class="student-container">
+    <h2>Student Attendance 📚</h2>
+    <p>Enter OTP sent to your email</p>
+
+    <input type="text" id="rollNumber" placeholder="Roll Number">
+    <input type="text" id="otp" placeholder="Enter OTP">
+
+    <p id="time" style="margin-top: 10px;color: #fff;font-size: 14px;">
+        Time left:  <span id="timer"></span>
+    </p>
+
+    <button id="submitBtn" onclick="submitOtp()">Submit Attendance</button>
+    <button id="requestOtpBtn" onclick="requestOtp()" style="display:none;">
+        🔁 Request OTP Again
+    </button>
+
+    <p id="msg"></p>
+
+    <a href="/role" class="back-link">⬅ Back to Role</a>
+</div>
+
+<script src="/js/student.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,391 @@
+/* GLOBAL */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: url("../images/teacher-page.png") no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  color: #fff;
+}
+
+/* DASHBOARD */
+.dashboard-container {
+  margin: 30px auto;
+  width: 95%;
+  max-width: 1100px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
+  padding: 25px;
+  border-radius: 14px;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.header-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* BUTTONS */
+button {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.add-btn {
+  background: #4caf50;
+  color: #fff;
+}
+
+.add-btn:hover {
+  background: #2e7d32;
+}
+
+.add-btn.active {
+  background: #1b5e20;
+}
+
+.logout-btn {
+  background: #f44336;
+  color: #fff;
+}
+
+.logout-btn:hover {
+  background: #d32f2f;
+}
+
+.logout-btn.active {
+  background: #b71c1c;
+}
+
+.view-btn {
+  background: #ff9800;
+  color: #fff;
+}
+
+.view-btn:hover {
+  background: #e65100;
+}
+
+.view-btn.active {
+  background: #bf360c;
+}
+
+.otp-btn {
+  background: #2196f3;
+  color: #fff;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.otp-btn:hover {
+  background: #1565c0;
+}
+
+.otp-btn.active {
+  background: #0d47a1;
+}
+
+/* TABLE */
+.student-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.student-table th,
+.student-table td {
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.student-table th {
+  background: rgba(255, 255, 255, 0.12);
+  font-weight: 600;
+}
+
+/* TODAY COLUMN */
+.today-cell {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.today-empty {
+  color: #bbb;
+}
+
+/* ACTIONS */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.actions i {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.edit {
+  color: #4caf50;
+}
+
+.delete {
+  color: #f44336;
+}
+
+/* STATUS (P / A) */
+.status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.present {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.absent {
+  background: #fdecea;
+  color: #c62828;
+}
+
+/* MODAL COMMON */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  color: #333;
+  width: 420px;
+  max-width: 95%;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.modal-content input,
+.modal-content select {
+  width: 100%;
+  padding: 9px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.cancel {
+  background: #ccc;
+  color: #000;
+}
+
+/* WEEKLY ATTENDANCE POPUP */
+#attendancePopup .modal-content {
+  width: 95%;
+  max-width: 640px;
+}
+
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+.attendance-table th,
+.attendance-table td {
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.attendance-table th {
+  background: #f2f2f2;
+  font-size: 13px;
+}
+
+.attendance-table td {
+  font-weight: bold;
+}
+
+/* VIEW ATTENDANCE: today OTP status (green tick / red X) */
+.attendance-cell {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.attendance-tick {
+  color: #2e7d32;
+  font-size: 1.25rem;
+}
+
+.attendance-tick i {
+  color: #2e7d32;
+}
+
+.attendance-cross {
+  color: #c62828;
+  font-size: 1.25rem;
+}
+
+.attendance-cross i {
+  color: #c62828;
+}
+
+/* WEEKLY COLORS (M T W T F S – day columns) */
+.attendance-table td.present {
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+.attendance-table td.absent {
+  color: #c62828;
+  font-weight: bold;
+}
+
+.week-present {
+  color: #2e7d32;
+}
+
+.week-absent {
+  color: #c62828;
+}
+
+.week-empty {
+  color: #999;
+}
+
+/* =========================
+   MOBILE RESPONSIVE – DASHBOARD
+   ========================= */
+@media (max-width: 768px) {
+
+  body {
+    background-attachment: scroll;
+  }
+
+  /* DASHBOARD CARD */
+  .dashboard-container {
+    margin: 15px;
+    padding: 15px;
+    border-radius: 12px;
+  }
+
+  /* HEADER */
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header h2 {
+    font-size: 18px;
+  }
+
+  .header-buttons {
+    width: 100%;
+  }
+
+  .header-buttons button {
+    flex: 1;
+    width: 100%;
+  }
+
+  /* TABLE SCROLL */
+  .student-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .student-table th,
+  .student-table td {
+    padding: 8px;
+    font-size: 15px;
+  }
+
+  /* ACTION ICONS */
+  .actions {
+    gap: 8px;
+    font-size: 14px;
+  }
+
+  /* FOOTER BUTTON */
+  .otp-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  /* MODALS */
+  .modal-content {
+    width: 100%;
+    margin: 0 10px;
+    padding: 15px;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .modal-actions button {
+    width: 100%;
+  }
+
+  /* WEEKLY ATTENDANCE TABLE */
+  .attendance-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .attendance-table th,
+  .attendance-table td {
+    font-size: 12px;
+    padding: 6px;
+  }
+}

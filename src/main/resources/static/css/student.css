@@ -1,0 +1,280 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: url('../images/student-page.png') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.student-container {
+    background: rgba(0, 0, 0, 0.55); /* dark glass */
+    backdrop-filter: blur(10px);   /* ⭐ glassmorphism */
+    -webkit-backdrop-filter: blur(10px);
+    padding: 30px;
+    width: 350px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    text-align: center;
+    color: #fff;
+    animation: fadeIn 0.6s ease;
+}
+
+/* Smooth entry animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.student-container h2 {
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.student-container p {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid lightblue;
+    font-size: 14px;
+    color : #222;
+    background : rgba(255,255,255,0.9);
+}
+
+input:focus {
+    outline: none;
+    border-color: #66a6ff;
+}
+
+#submitBtn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background: #66a6ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    
+    transition: all 0.3s ease;
+}
+
+#submitBtn:hover {
+    background: #4a90e2;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(102, 166, 255, 0.4);
+}
+
+#submitBtn:active {
+    background: #3d7acc;
+    transform: translateY(0);
+}
+
+#submitBtn.active {
+    background: #3068b6;
+}
+
+#submitBtn:disabled {
+    background-color: #b5b5b5;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.success {
+    color: green;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.error {
+    color: red;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.back-link {
+    display: block;
+    margin-top: 15px;
+    font-size: 13px;
+    text-decoration: none;
+    color: #4a90e2;
+}
+
+#msg {
+    margin-top: 10px;
+}
+
+#requestOtpBtn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    
+    transition: all 0.3s ease;
+}
+
+#requestOtpBtn:hover {
+    background: #e68900;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 152, 0, 0.4);
+}
+
+#requestOtpBtn:active {
+    background: #cc7a00;
+    transform: translateY(0);
+}
+
+#requestOtpBtn.active {
+    background: #b36b00;
+}
+
+/* WAITING MODAL */
+.waiting-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.waiting-content {
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid rgba(102, 166, 255, 0.5);
+    border-radius: 16px;
+    padding: 40px;
+    width: 320px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    animation: slideUp 0.4s ease;
+}
+
+.waiting-content h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #66a6ff;
+}
+
+.waiting-content p {
+    font-size: 14px;
+    color: #ccc;
+    margin: 10px 0;
+}
+
+/* SPINNER */
+.spinner {
+    border: 4px solid rgba(102, 166, 255, 0.2);
+    border-top: 4px solid #66a6ff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* HIDE MODAL */
+.waiting-modal.hidden {
+    display: none;
+}
+
+/* =========================
+   MOBILE RESPONSIVE STYLES
+   ========================= */
+@media (max-width: 480px) {
+
+    body {
+        padding: 15px;
+        background-attachment: scroll;
+    }
+
+    .student-container {
+        width: 100%;        /* ⭐ MAIN FIX */
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .student-container h2 {
+        font-size: 20px;
+    }
+
+    .student-container p {
+        font-size: 14px;
+    }
+
+    input {
+        font-size: 15px;
+        padding: 12px;
+    }
+
+    #submitBtn,
+    #requestOtpBtn {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .back-link {
+        font-size: 14px;
+    }
+
+    .waiting-content {
+        width: 90%;
+        padding: 25px;
+    }
+
+    .waiting-content h3 {
+        font-size: 20px;
+    }
+
+    .spinner {
+        width: 40px;
+        height: 40px;
+    }
+}
+

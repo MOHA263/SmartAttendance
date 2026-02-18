@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Teacher Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/register.css" />
+    <link rel="icon" href="/images/title_icon.png" />
+</head>
+
+<body class="auth-body">
+
+<div class="scene">
+    <div class="auth-card flip-right">
+
+        <div class="auth-face auth-back">
+            <h2>Teacher Register 🧑‍🏫</h2>
+
+            <input type="text" id="teacherId" placeholder="Teacher ID (6 digits)" />
+            <input type="text" id="username" placeholder="Username" />
+            <input type="email" id="email" placeholder="Gmail ID" />
+
+            <div class="password-box">
+                <input type="password" id="password" placeholder="Password" />
+                <span onclick="togglePwd()">👁</span>
+            </div>
+
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" />
+
+            <button onclick="registerTeacher()">Register</button>
+
+            <p id="msg"></p>
+
+            <a href="/teacher/login" class="back-link">⬅ Back to Login</a>
+        </div>
+
+    </div>
+</div>
+
+<script src="/js/register.js"></script>
+</body>
+</html>
